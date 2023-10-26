@@ -2,45 +2,51 @@
 
 using namespace std;
 
+struct dane{
+    string imie;
+    string nazwisko;
+    string kierunek;
+    int grupa;
+    string nr_indeksu;
+
+    dane(string name, string nazw, string kier, int gr, string nri):imie(name), nazwisko(nazw),
+    kierunek(kier), grupa(gr), nr_indeksu(nri){}
+
+
+    void wyswietl(){
+        cout<<"Imie: "<<this->imie<<endl;
+        cout<<"Nazwisko: "<<this->nazwisko<<endl;
+        cout<<"Kierunek: "<<this->kierunek<<endl;
+        cout<<"Grupa: "<<this->grupa<<endl;
+        cout<<"Nr indeksu: "<<this->nr_indeksu<<endl;
+    }
+
+};
+
+struct wyniki{
+    string nr_indeksu;
+    int uzyskane;
+    int maksymalne;
+    int ocena;
+
+    wyniki(string nrind, int uz, int maks):nr_indeksu(nrind), uzyskane(uz), maksymalne(maks), ocena(0){}
+
+    void wyswietl(){
+        cout<<"Nr indeksu: "<<this->nr_indeksu<<endl;
+        cout<<"uzyskane: "<<this->uzyskane<<endl;
+        cout<<"maksymalne: "<<this->maksymalne<<endl;
+        cout<<"ocena: "<<this->ocena<<endl;
+    }
+};
 
 
 int main() {
 
-    int tab[10];
+    dane student("Adolf","Hitler","germanistyka",5,"1939");
+    student.wyswietl();
 
-    cout<<"Podaj 10 liczb"<<endl;
-    for(int i=0;i<10;i++){
-        cin>>tab[i];
-    }
-
-    for(int i=0;i<10;i++){
-        cout<<tab[i]<<endl;
-    }
-
-    int ujemne=0;
-
-    for(int i=0;i<10;i++){
-        if(tab[i]<0)
-            ujemne++;
-    }
-
-    int * minus = new int[ujemne];
-    int licznik=0;
-
-    for(int i=0;i<10;i++){
-        if(tab[i]<0) {
-            minus[licznik] = tab[i];
-            licznik++;
-        }
-    }
-
-    for(int i=0;i<ujemne;i++){
-        cout<<minus[i]<<endl;
-    }
-
-    cout<<"Liczb ujemnych jest: "<<ujemne<<", przy czym pomineto: "<<10-ujemne<<" liczb dodatnich"<<endl;
-
-
+    wyniki adi("1939",19,45);
+    adi.wyswietl();
 
 
     return 0;
